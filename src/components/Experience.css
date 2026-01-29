@@ -43,7 +43,21 @@
     justify-content: center;
     color: var(--primary);
     z-index: 10;
+    animation: testExecution 3s ease-in-out infinite;
 }
+
+@keyframes testExecution {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+    }
+}
+
 
 .timeline-content {
     background: var(--card-bg);
@@ -51,12 +65,44 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: transform 0.3s ease;
+    position: relative;
+}
+
+.timeline-content::after {
+    content: '✓ Test Passed';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    color: #10b981;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .timeline-content:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
 }
+
+.timeline-content:hover::after {
+    opacity: 1;
+    animation: testPass 0.5s ease;
+}
+
+@keyframes testPass {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 .period {
     display: inline-block;

@@ -1,6 +1,57 @@
 .skills {
     padding: 100px 0;
     background-color: rgba(15, 23, 42, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating bug animation */
+.skills::before {
+    content: '🐛';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: floatBug1 15s infinite linear;
+    top: 20%;
+    left: -5%;
+}
+
+.skills::after {
+    content: '🐞';
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    animation: floatBug2 20s infinite linear;
+    top: 60%;
+    left: -5%;
+}
+
+@keyframes floatBug1 {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(50vw) translateY(-20px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(100vw) translateY(0) rotate(360deg);
+    }
+}
+
+@keyframes floatBug2 {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(50vw) translateY(20px) rotate(-180deg);
+    }
+
+    100% {
+        transform: translateX(100vw) translateY(0) rotate(-360deg);
+    }
 }
 
 .skills-container {
@@ -21,41 +72,40 @@
     overflow: hidden;
 }
 
-.skill-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-}
-
-/* Scanning Effect */
-.skill-card::after {
-    content: '';
+.skill-card::before {
+    content: '✓';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(99, 102, 241, 0.2),
-            rgba(99, 102, 241, 0.5),
-            rgba(99, 102, 241, 0.2),
-            transparent);
-    transform: skewX(-25deg);
-    transition: none;
+    top: 10px;
+    right: 10px;
+    color: var(--primary);
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.skill-card:hover::after {
-    animation: scan 1.5s ease-in-out infinite;
+.skill-card:hover::before {
+    opacity: 1;
+    animation: checkMark 0.5s ease;
 }
 
-@keyframes scan {
+@keyframes checkMark {
     0% {
-        left: -150%;
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.5) rotate(180deg);
     }
 
     100% {
-        left: 200%;
+        transform: scale(1) rotate(360deg);
     }
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
 }
 
 .skill-icon {
@@ -65,16 +115,31 @@
     padding: 15px;
     background: rgba(99, 102, 241, 0.1);
     border-radius: 50%;
-    position: relative;
-    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+    animation: scanIcon 1s ease-in-out;
+}
+
+@keyframes scanIcon {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.5);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
 }
 
 .skill-title {
     margin-bottom: 1.5rem;
     color: var(--text-color);
     font-size: 1.3rem;
-    position: relative;
-    z-index: 1;
 }
 
 .skill-list {
@@ -83,8 +148,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    position: relative;
-    z-index: 1;
 }
 
 .skill-list li {
@@ -95,10 +158,28 @@
     color: var(--text-secondary);
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .skill-list li:hover {
     background: rgba(99, 102, 241, 0.1);
     color: var(--primary);
     border-color: var(--primary);
+    animation: testPass 0.6s ease;
+}
+
+@keyframes testPass {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(0.95);
+    }
+
+    75% {
+        transform: scale(1.05);
+    }
 }
