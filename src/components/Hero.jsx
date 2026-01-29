@@ -69,6 +69,22 @@ const Hero = () => {
                 >
                     {/* Abstract Shape or Image Placeholder */}
                     <div className="abstract-shape"></div>
+
+                    {/* Certification Badge */}
+                    <motion.div
+                        className="certification-badge"
+                        initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        transition={{ delay: 0.8, duration: 0.8, type: "spring", stiffness: 100 }}
+                    >
+                        <div className="badge-hexagon">
+                            <div className="badge-content">
+                                <span className="badge-certified">CERTIFIED</span>
+                                <span className="badge-title">QA Engineer</span>
+                                <span className="badge-level">PROFESSIONAL</span>
+                            </div>
+                        </div>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

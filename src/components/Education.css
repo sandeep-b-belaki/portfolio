@@ -1,0 +1,220 @@
+.education {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.section-icon {
+    color: var(--primary);
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Table Layout */
+.education-table {
+    background: rgba(15, 20, 25, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 3fr 1fr 2.5fr;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(0, 217, 255, 0.1);
+    border-bottom: 2px solid var(--primary);
+}
+
+.header-cell {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.table-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 3fr 1fr 2.5fr;
+    gap: 1rem;
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row:hover {
+    background: rgba(0, 217, 255, 0.05);
+    border-left: 3px solid var(--primary);
+    box-shadow: inset 0 0 20px rgba(0, 217, 255, 0.1);
+}
+
+.table-cell {
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.name-col {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.cell-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 0.75rem;
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+.cell-text {
+    flex: 1;
+}
+
+.stream-col {
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+.institution-col {
+    color: var(--text-secondary);
+}
+
+.yop-col {
+    font-weight: 600;
+    color: var(--accent);
+    justify-content: center;
+}
+
+.board-col {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 1.5fr 1fr 2.5fr 0.8fr 2fr;
+        gap: 0.75rem;
+        padding: 1.25rem 1rem;
+    }
+
+    .header-cell,
+    .table-cell {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-table {
+        border-radius: 12px;
+    }
+
+    .table-header {
+        display: none;
+    }
+
+    .table-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 1.5rem;
+        border-left: 3px solid transparent;
+    }
+
+    .table-row:hover {
+        border-left-color: var(--primary);
+    }
+
+    .table-cell {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 1rem;
+    }
+
+    .table-cell::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .name-col::before {
+        content: 'Name';
+    }
+
+    .stream-col::before {
+        content: 'Stream';
+    }
+
+    .institution-col::before {
+        content: 'College/School';
+    }
+
+    .yop-col::before {
+        content: 'YOP';
+    }
+
+    .board-col::before {
+        content: 'Board';
+    }
+
+    .cell-icon {
+        display: none;
+    }
+
+    .yop-col {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .table-row {
+        padding: 1.25rem;
+    }
+
+    .table-cell {
+        grid-template-columns: 100px 1fr;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
