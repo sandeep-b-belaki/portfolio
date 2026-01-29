@@ -25,6 +25,7 @@ const Contact = () => {
 
                     <div className="social-links">
                         <a href="https://github.com/Belakisandeep" target="_blank" aria-label="Github"><Github /></a>
+                        <a href="https://www.linkedin.com/in/sandeep-belaki-490219187/" target="_blank" aria-label="Linkedin"><Linkedin /></a>
                         <a href="mailto:sandeepbelaki@gmail.com" aria-label="Email"><Mail /></a>
                     </div>
                 </motion.div>

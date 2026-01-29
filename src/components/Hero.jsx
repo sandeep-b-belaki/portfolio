@@ -43,7 +43,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.5 }}
                     >
-                        I'm a Software Quality Engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products.
+                        Detail-oriented QA Engineer in Manual Testing for Android, iOS and web application Proven in test planning, execution, and defect tracking. Skilled in cross-functional collaboration for timely, high-quality software delivery. Eager to expand into automation to enhance product quality and streamline processes.
                     </motion.p>
 
                     <motion.div
@@ -55,7 +55,7 @@ const Hero = () => {
                         <a href="#contact" className="btn btn-primary">
                             Contact Me <ArrowRight size={18} />
                         </a>
-                        <a href="/resume.pdf" className="btn btn-outline">
+                        <a href="https://drive.google.com/file/d/1-Q8ZoTzlhl_rT5Ru7bohoesYW-plCwbs/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
                             Resume <Download size={18} />
                         </a>
                     </motion.div>
