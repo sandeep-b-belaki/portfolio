@@ -4,20 +4,22 @@
     align-items: center;
     padding-top: 80px;
     position: relative;
-    /* Header height */
-    background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 20%);
     overflow: hidden;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.1) 0%, transparent 60%);
 }
 
 /* Magnifying glass scanning animation */
 .hero::before {
     content: '🔍';
     position: absolute;
-    font-size: 3rem;
-    opacity: 0.2;
+    font-size: 4rem;
+    opacity: 0.3;
     animation: scanAcross 12s infinite ease-in-out;
     z-index: 1;
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
 }
 
 @keyframes scanAcross {
@@ -26,118 +28,204 @@
     100% {
         left: -10%;
         top: 30%;
-        transform: rotate(-20deg);
+        transform: rotate(-20deg) scale(1);
     }
 
     50% {
         left: 100%;
         top: 60%;
-        transform: rotate(20deg);
+        transform: rotate(20deg) scale(1.2);
     }
 }
-
 
 .hero-container {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 4rem;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .greeting {
     display: block;
-    font-family: monospace;
-    color: var(--primary);
-    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+    color: var(--accent);
+    font-size: 1.2rem;
     margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 0 0 20px var(--accent-glow);
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    50% {
+        text-shadow: 0 0 30px var(--accent-glow), 0 0 40px var(--accent-glow);
+    }
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    font-weight: 800;
+    font-size: 4.5rem;
+    font-weight: 900;
     line-height: 1.1;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .hero-content h2 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: var(--text-secondary);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-secondary);
-    max-width: 540px;
+    max-width: 600px;
     margin-bottom: 2.5rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    opacity: 0.9;
 }
 
 .hero-buttons {
     display: flex;
     gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    gap: 0.7rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-primary {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
-    box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.23);
-    background: #5558e6;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.6);
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+}
+
+.btn-primary:active {
+    transform: translateY(-1px) scale(1.02);
 }
 
 .btn-outline {
-    border: 1px solid var(--primary);
+    border: 2px solid var(--primary);
     color: var(--primary);
+    background: rgba(139, 92, 246, 0.05);
+    backdrop-filter: blur(10px);
 }
 
 .btn-outline:hover {
-    background: rgba(99, 102, 241, 0.1);
+    background: rgba(139, 92, 246, 0.15);
+    border-color: var(--secondary);
+    color: var(--secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.3);
 }
 
 .hero-visual {
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .abstract-shape {
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    animation: morph 8s ease-in-out infinite;
+    animation: morph 8s ease-in-out infinite, rotate 20s linear infinite;
     filter: blur(40px);
-    opacity: 0.6;
+    opacity: 0.7;
+    box-shadow: 0 0 80px rgba(139, 92, 246, 0.6);
 }
 
 @keyframes morph {
-    0% {
+
+    0%,
+    100% {
         border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    25% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
     }
 
     50% {
-        border-radius: 30% 30% 70% 70% / 50% 30% 70% 60%;
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
     }
 
-    100% {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    75% {
+        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
 
@@ -152,7 +240,7 @@
     }
 
     .hero-content h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .hero-content p {
@@ -165,6 +253,5 @@
 
     .hero-visual {
         display: none;
-        /* Hide on mobile for simpler layout or adjust */
     }
 }
