@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import profileImg from '../assets/profile.jpg';
+import resumeFile from '../assets/Sandeep_B_Belaki_QA.pdf';
 import './Hero.css';
 
 const Hero = () => {
@@ -56,7 +57,7 @@ const Hero = () => {
                         <a href="#contact" className="btn btn-primary">
                             Contact Me <ArrowRight size={18} />
                         </a>
-                        <a href="https://drive.google.com/file/d/1-Q8ZoTzlhl_rT5Ru7bohoesYW-plCwbs/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                        <a href={resumeFile} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
                             Resume <Download size={18} />
                         </a>
                     </motion.div>
