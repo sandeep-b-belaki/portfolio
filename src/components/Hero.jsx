@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 import './Hero.css';
 
 const Hero = () => {
@@ -19,7 +20,7 @@ const Hero = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
                     >
-                        Hi, I'm
+                        I break software so users don’t have to.
                     </motion.span>
 
                     <motion.h1
@@ -35,7 +36,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4, duration: 0.5 }}
                     >
-                        I build things for the web.
+                        Software QA Engineer
                     </motion.h2>
 
                     <motion.p
@@ -43,7 +44,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.5 }}
                     >
-                        Detail-oriented QA Engineer in Manual Testing for Android, iOS and web application Proven in test planning, execution, and defect tracking. Skilled in cross-functional collaboration for timely, high-quality software delivery. Eager to expand into automation to enhance product quality and streamline processes.
+                        Detail-oriented Software QA Engineer with experience in manual testing for Android, iOS, and web applications. Strong in test planning, execution, and defect tracking, with a growing focus on automation.
                     </motion.p>
 
                     <motion.div
@@ -68,7 +69,13 @@ const Hero = () => {
                     transition={{ delay: 0.4, duration: 0.8 }}
                 >
                     {/* Abstract Shape or Image Placeholder */}
-                    <div className="abstract-shape"></div>
+                    {/* Profile Picture with Stylized Frame */}
+                    <div className="profile-container">
+                        <div className="profile-frame">
+                            <img src={profileImg} alt="Sandeep B Belaki" className="profile-img" />
+                        </div>
+                        <div className="abstract-shape"></div>
+                    </div>
 
                     {/* Certification Badge */}
                     <motion.div
