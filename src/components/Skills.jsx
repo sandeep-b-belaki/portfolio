@@ -8,22 +8,22 @@ const Skills = () => {
         {
             title: 'Testing Expertise',
             icon: <Code size={30} />,
-            skills: ['STLC', 'Test Case Design', 'Functional Testing', 'Regression Testing', 'Mobile Testing', 'API Testing', 'UAT', 'E2E Testing']
+            skills: ['STLC', 'Test Case Design', 'Functional Testing', 'Regression Testing', 'Mobile Testing', 'API Testing', 'Performance Testing (Basics) ⭐', 'UAT', 'E2E Testing']
         },
         {
-            title: 'Mobile QA Skills',
-            icon: <Server size={30} />,
-            skills: ['Android Testing', 'iOS Testing', 'ADB', 'logcat', 'Charles Proxy', 'Firebase', 'Device Compatibility']
-        },
-        {
-            title: 'Technical Skills',
+            title: 'Programming & APIs',
             icon: <Database size={30} />,
-            skills: ['Java', 'SQL', 'HTML', 'CSS', 'API Testing', 'Postman']
+            skills: ['Java', 'SQL', 'MySQL', 'HTML', 'CSS', 'Postman', 'Test Automation (Basics)']
         },
         {
             title: 'Tools',
             icon: <PenTool size={30} />,
-            skills: ['JIRA', 'TestRail', 'BrowserStack', 'Mixpanel', 'Amplitude', 'Android Studio', 'Xcode', 'MySQL', 'Cursor AI']
+            skills: ['JIRA', 'TestRail', 'BrowserStack', 'Mixpanel', 'Amplitude', 'Android Studio', 'Xcode', 'Apache JMeter (Basics)']
+        },
+        {
+            title: 'AI-Assisted Tools',
+            icon: <Server size={30} />,
+            skills: ['Cursor AI', 'Claude', 'DeepSeek', 'OpenAI', 'Antigravity']
         }
     ];
 

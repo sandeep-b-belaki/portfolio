@@ -27,13 +27,19 @@ const About = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
                         <p>
-                            Hello! My name is Sandeep B Belaki and I enjoy creating things that live on the internet. My interest in web development started back in 2019 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS was quite fun!
+                            Hello! I’m Sandeep B Belaki, a Quality Assurance Engineer passionate about building reliable web and mobile experiences.
                         </p>
                         <p>
-                            Fast-forward to today, and I've built a strong career in Quality Assurance. I specialize in Mobile and Web application testing, with extensive experience in functional, regression, and API testing. I'm passionate about ensuring software quality through rigorous testing methodologies and using modern tools like Cursor AI to enhance efficiency.
+                            My journey in technology began in 2019, when I started experimenting with web development by customizing Tumblr themes. Working with HTML and CSS sparked my interest and gave me a strong understanding of how web applications are built.
                         </p>
                         <p>
-                            Here are a few technologies I've been working with recently:
+                            Today, I specialize in manual testing for mobile and web applications, with hands-on experience in functional, regression, and API testing. I focus on identifying issues early and collaborating closely with teams to ensure stable, high-quality releases.
+                        </p>
+                        <p>
+                            I actively use AI-powered tools such as Cursor, Antigravity, Claude, DeepSeek, and OpenAI to improve testing efficiency and analysis. Alongside QA, I also enjoy exploring AI-assisted web design to create clean, user-friendly interfaces.
+                        </p>
+                        <p>
+                            Core QA Tools I Use:
                         </p>
                         <ul className="skills-list">
                             <li>Java</li>
