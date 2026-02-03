@@ -4,27 +4,24 @@
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 60px;
-    align-items: start;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-text p {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: var(--text-secondary);
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     line-height: 1.8;
 }
 
 .skills-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    gap: 12px 15px;
-    padding: 0;
-    margin: 25px 0 0 0;
-    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
     list-style: none;
+    padding: 0;
 }
 
 .skills-list li {

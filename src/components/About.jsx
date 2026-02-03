@@ -18,14 +18,14 @@ const About = () => {
                     About Me
                 </motion.h2>
 
-                <div className="about-content">
-                    <motion.div
-                        className="about-text"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
+                <motion.div
+                    className="about-content"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <div className="about-text">
                         <p>
                             Hello! My name is Sandeep B Belaki and I enjoy creating things that live on the internet. My interest in web development started back in 2019 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS was quite fun!
                         </p>
@@ -43,22 +43,8 @@ const About = () => {
                             <li>Postman</li>
                             <li>Charles Proxy</li>
                         </ul>
-                    </motion.div>
-
-                    <motion.div
-                        className="about-image"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                    >
-                        <div className="image-wrapper">
-                            <div className="about-img-frame">
-                                <img src={profileImg} alt="Sandeep B Belaki" className="about-img" />
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

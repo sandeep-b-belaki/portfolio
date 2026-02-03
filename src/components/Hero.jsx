@@ -78,25 +78,24 @@ const Hero = () => {
                         <div className="abstract-shape"></div>
                     </div>
 
-                    {/* Certification Badge */}
+                    {/* Professional Certification Seal */}
                     <motion.div
-                        className="certification-badge"
-                        initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
+                        className="certification-seal"
+                        initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
                         animate={{ opacity: 1, scale: 1, rotate: 0 }}
                         transition={{ delay: 0.8, duration: 0.8, type: "spring", stiffness: 100 }}
                     >
-                        <div className="badge-hexagon-wrapper">
-                            <div className="badge-hexagon-outer"></div>
-                            <div className="badge-hexagon-inner">
-                                <div className="badge-content">
-                                    <span className="badge-icon-wrapper">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="badge-icon">
+                        <div className="seal-outer">
+                            <div className="seal-inner">
+                                <div className="seal-content">
+                                    <div className="seal-check">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
                                             <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
-                                    </span>
-                                    <span className="badge-certified">CERTIFIED</span>
-                                    <span className="badge-title">QA Engineer</span>
-                                    <span className="badge-level">PROFESSIONAL</span>
+                                    </div>
+                                    <span className="seal-text-top">CERTIFIED</span>
+                                    <span className="seal-text-main">QA ENGINEER</span>
+                                    <span className="seal-text-bottom">PROFESSIONAL</span>
                                 </div>
                             </div>
                         </div>
