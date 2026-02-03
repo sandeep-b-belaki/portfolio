@@ -274,24 +274,24 @@
 /* Certification Badge */
 .certification-badge {
     position: absolute;
-    top: -20px;
-    right: -20px;
-    animation: float 6s ease-in-out infinite;
+    top: 0;
+    right: -10px;
+    animation: simpleFloat 4s ease-in-out infinite;
     z-index: 10;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
     transform-origin: center;
-    scale: 0.6;
+    scale: 0.45;
 }
 
-@keyframes float {
+@keyframes simpleFloat {
 
     0%,
     100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-10px) rotate(1deg);
+        transform: translateY(-8px);
     }
 }
 
