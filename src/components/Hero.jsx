@@ -63,44 +63,7 @@ const Hero = () => {
                     </motion.div>
                 </motion.div>
 
-                <motion.div
-                    className="hero-visual"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                >
-                    {/* Abstract Shape or Image Placeholder */}
-                    {/* Profile Picture with Stylized Frame */}
-                    <div className="profile-container">
-                        <div className="profile-frame">
-                            <img src={profileImg} alt="Sandeep B Belaki" className="profile-img" />
-                        </div>
-                        <div className="abstract-shape"></div>
-                    </div>
 
-                    {/* Professional Certification Seal */}
-                    <motion.div
-                        className="certification-seal"
-                        initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
-                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                        transition={{ delay: 0.8, duration: 0.8, type: "spring", stiffness: 100 }}
-                    >
-                        <div className="seal-outer">
-                            <div className="seal-inner">
-                                <div className="seal-content">
-                                    <div className="seal-check">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                                            <polyline points="20 6 9 17 4 12"></polyline>
-                                        </svg>
-                                    </div>
-                                    <span className="seal-text-top">CERTIFIED</span>
-                                    <span className="seal-text-main">QA ENGINEER</span>
-                                    <span className="seal-text-bottom">PROFESSIONAL</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </motion.div>
             </div>
         </section>
     );

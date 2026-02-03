@@ -18,14 +18,14 @@ const About = () => {
                     About Me
                 </motion.h2>
 
-                <motion.div
-                    className="about-content"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <div className="about-text">
+                <div className="about-content">
+                    <motion.div
+                        className="about-text"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
                         <p>
                             Hello! My name is Sandeep B Belaki and I enjoy creating things that live on the internet. My interest in web development started back in 2019 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS was quite fun!
                         </p>
@@ -43,8 +43,32 @@ const About = () => {
                             <li>Postman</li>
                             <li>Charles Proxy</li>
                         </ul>
-                    </div>
-                </motion.div>
+                    </motion.div>
+
+                    <motion.div
+                        className="about-image-container"
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                        <div className="about-profile-wrapper">
+                            <div className="about-profile-frame">
+                                <img src={profileImg} alt="Sandeep B Belaki" className="about-profile-img" />
+                            </div>
+
+                            {/* Professional Certification Badge */}
+                            <div className="about-badge">
+                                <div className="about-badge-inner">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    <span>CERTIFIED QA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );
