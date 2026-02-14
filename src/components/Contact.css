@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 0.5rem 0.5rem 0.5rem 1.2rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -20,9 +20,9 @@
 }
 
 .info-display:hover {
-    background: rgba(0, 217, 255, 0.05);
-    border-color: var(--primary);
-    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
 .info-link {
@@ -36,7 +36,7 @@
 .copy-btn {
     background: transparent;
     border: none;
-    color: var(--primary);
+    color: #ffffff;
     cursor: pointer;
     margin-left: 1rem;
     padding: 0.6rem;
@@ -45,12 +45,12 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    background: rgba(0, 217, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .copy-btn:hover {
-    background: var(--primary);
-    color: #0a0f1e;
+    background: #ffffff;
+    color: #000000;
     transform: scale(1.1);
 }
 
@@ -66,7 +66,7 @@
 }
 
 .contact {
-    padding: 100px 0 50px;
+    padding: 80px 0 50px;
     text-align: center;
 }
 
@@ -92,6 +92,22 @@
     padding: 1rem 2rem;
     font-size: 1.1rem;
     margin-bottom: 1rem;
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+    border: 1px solid #ffffff;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(255, 255, 255, 0.5);
+    background: #e5e7eb;
 }
 
 .social-links {
@@ -114,10 +130,10 @@
 }
 
 .social-links a:hover {
-    color: var(--primary);
+    color: #ffffff;
     transform: translateY(-5px);
-    background: rgba(0, 217, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0, 217, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 .footer {
@@ -130,4 +146,34 @@
 
 .highlight {
     color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 60px 0 40px;
+    }
+
+    .contact-text {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .info-display {
+        min-width: auto;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .info-link {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 20px;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+    }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Eye } from 'lucide-react';
 import resumeFile from '../assets/Sandeep_B_Belaki_QA.pdf';
 import './Hero.css';
 
@@ -57,7 +57,7 @@ const Hero = () => {
                             Contact Me <ArrowRight size={18} />
                         </a>
                         <a href={resumeFile} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-                            Resume <Download size={18} />
+                            <Eye size={18} /> View Resume
                         </a>
                     </motion.div>
                 </motion.div>
