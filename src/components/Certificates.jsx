@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Award, Eye, X } from 'lucide-react';
+import { Award, Eye, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Certificates.css';
 
-// TODO: Add your certificate images here
 import qspiderCert from '../assets/certificates/qspider.jpg';
 import jspiderCert from '../assets/certificates/jspider.png';
 
@@ -31,61 +30,56 @@ const Certificates = () => {
         }
     ];
 
-    const openCertificate = (cert) => {
-        setSelectedCert(cert);
-    };
-
-    const closeCertificate = () => {
-        setSelectedCert(null);
-    };
-
     return (
-        <section id="certificates" className="certificates">
+        <section id="certificates" className="section certificates">
             <div className="container">
-                <motion.div
+                <motion.h2
+                    className="section-title"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                 >
-                    <div className="section-header">
-                        <Award size={32} className="section-icon" />
-                        <h2>Certifications</h2>
-                    </div>
+                    Certifications
+                </motion.h2>
+                <p className="section-desc">Professional certifications that validate my expertise.</p>
 
-                    <div className="certificates-grid">
-                        {certificates.map((cert, index) => (
-                            <motion.div
-                                key={cert.id}
-                                className="certificate-card"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.5 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className="cert-icon">
-                                    <Award size={40} />
+                <div className="certs-grid">
+                    {certificates.map((cert, index) => (
+                        <motion.div
+                            key={cert.id}
+                            className="cert-card"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.15, duration: 0.5 }}
+                            viewport={{ once: true }}
+                            onClick={() => setSelectedCert(cert)}
+                        >
+                            <div className="cert-card-header">
+                                <div className="cert-icon-wrap">
+                                    <Award size={24} />
                                 </div>
-                                <h3 className="cert-title">{cert.title}</h3>
-                                <p className="cert-institution">{cert.institution}</p>
-                                <p className="cert-description">{cert.description}</p>
-                                <ul className="cert-topics">
-                                    {cert.topics.map((topic, i) => (
-                                        <li key={i}>{topic}</li>
-                                    ))}
-                                </ul>
-                                <p className="cert-date">{cert.date}</p>
-                                <button
-                                    className="view-cert-btn"
-                                    onClick={() => openCertificate(cert)}
-                                >
-                                    <Eye size={18} />
-                                    View Certificate
-                                </button>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                                <span className="cert-issuer-tag">{cert.date}</span>
+                            </div>
+                            <h3 className="cert-name">{cert.title}</h3>
+                            <p className="cert-institution">{cert.institution}</p>
+                            <p className="cert-desc">{cert.description}</p>
+                            <div className="cert-topics">
+                                {cert.topics.map((topic, i) => (
+                                    <span key={i} className="cert-topic-tag">{topic}</span>
+                                ))}
+                            </div>
+                            <button
+                                className="cert-view-btn"
+                                onClick={(e) => { e.stopPropagation(); setSelectedCert(cert); }}
+                            >
+                                <Eye size={15} />
+                                View Certificate
+                                <ArrowRight size={14} />
+                            </button>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
 
             {/* Certificate Modal */}
@@ -96,27 +90,22 @@ const Certificates = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={closeCertificate}
+                        onClick={() => setSelectedCert(null)}
                     >
                         <motion.div
-                            className="cert-modal-content"
-                            initial={{ scale: 0.8, opacity: 0 }}
+                            className="cert-modal"
+                            initial={{ scale: 0.85, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.8, opacity: 0 }}
+                            exit={{ scale: 0.85, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button className="close-modal" onClick={closeCertificate}>
-                                <X size={24} />
+                            <button className="modal-close" onClick={() => setSelectedCert(null)}>
+                                <X size={20} />
                             </button>
                             <img
                                 src={selectedCert.image}
                                 alt={selectedCert.title}
-                                className="cert-image"
                             />
-                            <div className="cert-modal-info">
-                                <h3>{selectedCert.title}</h3>
-                                <p>{selectedCert.institution}</p>
-                            </div>
                         </motion.div>
                     </motion.div>
                 )}

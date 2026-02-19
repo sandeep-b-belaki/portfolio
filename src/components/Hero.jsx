@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Eye, FolderOpen } from 'lucide-react';
 import resumeFile from '../assets/Sandeep_B_Belaki_QA.pdf';
+import profileImg from '../assets/profile.jpg';
 import './Hero.css';
 
 const Hero = () => {
@@ -97,7 +98,7 @@ const Hero = () => {
                     </motion.div>
                 </motion.div>
 
-                {/* RIGHT: Aurora Orb Visual */}
+                {/* RIGHT: Profile Photo with Aurora Rings */}
                 <motion.div
                     className="hero-visual"
                     initial={{ opacity: 0, scale: 0.85 }}
@@ -108,7 +109,9 @@ const Hero = () => {
                         <div className="orb-ring"></div>
                         <div className="orb-ring-2"></div>
                         <div className="orb-ring-3"></div>
-                        <div className="orb-core"></div>
+                        <div className="hero-profile-photo">
+                            <img src={profileImg} alt="Sandeep B Belaki" />
+                        </div>
 
                         {/* Floating stat cards */}
                         <div className="hero-float-card card-1">
