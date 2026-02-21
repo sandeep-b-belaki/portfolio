@@ -139,6 +139,11 @@
     color: var(--indigo);
 }
 
+.theme-toggle>svg,
+.mobile-toggle>svg {
+    pointer-events: none;
+}
+
 /* Mobile Nav */
 .mobile-nav {
     position: fixed;

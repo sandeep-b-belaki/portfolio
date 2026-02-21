@@ -17,12 +17,22 @@ const Header = ({ theme, toggleTheme }) => {
     // Close mobile menu on outside click
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (isMenuOpen && !e.target.closest('.mobile-nav') && !e.target.closest('.mobile-toggle')) {
+            if (!e.target.closest) return;
+            if (
+                isMenuOpen &&
+                !e.target.closest('.mobile-nav') &&
+                !e.target.closest('.mobile-toggle') &&
+                !e.target.closest('.theme-toggle')
+            ) {
                 setIsMenuOpen(false);
             }
         };
-        document.addEventListener('click', handleClickOutside);
-        return () => document.removeEventListener('click', handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('touchstart', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('touchstart', handleClickOutside);
+        };
     }, [isMenuOpen]);
 
     const navLinks = [

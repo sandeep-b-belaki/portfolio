@@ -367,13 +367,13 @@
     }
 
     .hero-float-card.card-2 {
-        right: -5px;
-        bottom: -10%;
+        right: -10px;
+        bottom: 10%;
     }
 
     .hero-float-card.card-3 {
-        left: -5px;
-        bottom: -10%;
+        left: -10px;
+        bottom: -15%;
     }
 }
 
@@ -394,5 +394,25 @@
 
     .hero-ctas .btn {
         justify-content: center;
+    }
+
+    .hero-float-card {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.72rem;
+    }
+
+    .hero-float-card.card-1 {
+        left: -5px;
+        top: -5%;
+    }
+
+    .hero-float-card.card-2 {
+        right: -15px;
+        bottom: 15%;
+    }
+
+    .hero-float-card.card-3 {
+        left: -5px;
+        bottom: -10%;
     }
 }
