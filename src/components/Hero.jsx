@@ -115,14 +115,10 @@ const Hero = () => {
 
                         {/* Floating stat cards */}
                         <div className="hero-float-card card-1">
-                            <div className="float-card-icon" style={{ background: 'rgba(99,102,241,0.15)' }}>🛡️</div>
-                            <span>ISTQB Certified</span>
-                        </div>
-                        <div className="hero-float-card card-2">
                             <div className="float-card-icon" style={{ background: 'rgba(168,85,247,0.15)' }}>🤖</div>
                             <span>Selenium + Java</span>
                         </div>
-                        <div className="hero-float-card card-3">
+                        <div className="hero-float-card card-2">
                             <div className="float-card-icon" style={{ background: 'rgba(236,72,153,0.15)' }}>📱</div>
                             <span>Android &amp; iOS</span>
                         </div>
