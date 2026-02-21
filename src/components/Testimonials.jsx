@@ -6,31 +6,26 @@ import './Testimonials.css';
 const Testimonials = () => {
     const testimonials = [
         {
-            name: 'Ravi Kumar',
-            role: 'Engineering Manager',
+            name: 'Sachin Sinha',
+            role: 'Co-Founder',
             company: 'BANGDB',
-            avatar: 'RK',
+            avatar: 'SS',
             color: '#00d9ff',
             rating: 5,
+            url: 'https://www.linkedin.com/in/sachinsi/',
+            image: 'https://media.licdn.com/dms/image/v2/C4D03AQEWGNO1X3Extg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1598781796474?e=2147483647&v=beta&t=wPXQLqpcRK9JtytuanpXI8ZchqQkwjxmp4skzNrSdXE',
             text: 'Sandeep consistently delivered thorough test coverage that caught issues we would have otherwise missed in production. His attention to edge cases and ability to write clear, reproducible bug reports made our development cycles significantly more predictable. A true quality champion on our team.'
         },
         {
-            name: 'Priya Sharma',
-            role: 'Senior Product Manager',
-            company: 'Moolya Software Testing',
-            avatar: 'PS',
+            name: 'Swathi Bharadwaj',
+            role: 'Test Manager',
+            company: 'Moolya',
+            avatar: 'S',
             color: '#8b5cf6',
             rating: 5,
+            url: 'https://www.linkedin.com/in/swathibharadwaj/',
+            image: 'https://media.licdn.com/dms/image/v2/C5603AQG3ignPDvpFcA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1617950163312?e=2147483647&v=beta&t=P3i7RZEsUV9CLV9KUTvO6GSaudqjdYDgDZDK3UroQmg',
             text: 'Working with Sandeep was a pleasure. He doesn\'t just execute test cases — he thinks deeply about the user journey and asks the right questions during requirement reviews. His API testing skills and ability to use tools like Postman and Charles Proxy made our backend validation process much stronger.'
-        },
-        {
-            name: 'Anil Mehta',
-            role: 'Tech Lead',
-            company: 'Kutumb',
-            avatar: 'AM',
-            color: '#f59e0b',
-            rating: 5,
-            text: 'Sandeep brought a great testing mindset to our mobile QA process. He quickly understood our product complexity and built a structured approach to cross-platform testing. His proactive communication and detailed test reports helped us ship features with confidence across Android and iOS.'
         }
     ];
 
@@ -80,14 +75,25 @@ const Testimonials = () => {
                             </div>
 
                             <div className="testimonial-author">
-                                <div
-                                    className="author-avatar"
-                                    style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}88)` }}
-                                >
-                                    {t.avatar}
-                                </div>
+                                {t.image ? (
+                                    <img
+                                        src={t.image}
+                                        alt={t.name}
+                                        className="author-avatar"
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                ) : (
+                                    <div
+                                        className="author-avatar"
+                                        style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}88)` }}
+                                    >
+                                        {t.avatar}
+                                    </div>
+                                )}
                                 <div className="author-info">
-                                    <span className="author-name">{t.name}</span>
+                                    <a href={t.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                                        <span className="author-name">{t.name}</span>
+                                    </a>
                                     <span className="author-role">{t.role} · {t.company}</span>
                                 </div>
                             </div>
