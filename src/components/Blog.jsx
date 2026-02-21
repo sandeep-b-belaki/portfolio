@@ -11,9 +11,10 @@ const Blog = () => {
             title: 'How I Structure Mobile QA Test Plans for Agile Teams',
             excerpt: 'A walkthrough of the test planning process I follow at the start of each sprint — from risk assessment and coverage mapping to execution tracking in TestRail.',
             readTime: '6 min read',
-            date: 'Coming Soon',
+            date: 'Recent',
             color: '#00d9ff',
-            comingSoon: true
+            comingSoon: false,
+            url: 'https://sandeepblog-teal.vercel.app/'
         },
         {
             emoji: '📮',
@@ -21,9 +22,10 @@ const Blog = () => {
             title: 'Postman Beyond the Basics: Chaining Requests & Environment Management',
             excerpt: 'Most QA engineers know how to send a request in Postman. But are you using pre-request scripts, dynamic variables, and Newman for CI integration? This article covers it all.',
             readTime: '8 min read',
-            date: 'Coming Soon',
+            date: 'Featured',
             color: '#8b5cf6',
-            comingSoon: true
+            comingSoon: false,
+            url: 'https://postman-blog.vercel.app/blog/postman-beyond-basics'
         },
         {
             emoji: '🔍',
@@ -31,9 +33,10 @@ const Blog = () => {
             title: 'The Bug Hunter\'s Mindset: Thinking Beyond the Happy Path',
             excerpt: 'Exploratory testing is more than ad-hoc clicking. Learn the heuristics, session-based techniques, and mental models I use to find bugs that test cases miss.',
             readTime: '5 min read',
-            date: 'Coming Soon',
+            date: 'Featured',
             color: '#f59e0b',
-            comingSoon: true
+            comingSoon: false,
+            url: 'https://bug-hunt-sandeep.vercel.app/blog/bug-hunters-mindset'
         }
     ];
 
@@ -90,10 +93,23 @@ const Blog = () => {
 
                             <div className="blog-footer">
                                 <span className="blog-date">{article.date}</span>
-                                <button className="blog-read-btn" disabled={article.comingSoon}>
-                                    {article.comingSoon ? 'Stay tuned' : 'Read More'}
-                                    <ArrowRight size={14} />
-                                </button>
+                                {article.comingSoon ? (
+                                    <button className="blog-read-btn" disabled>
+                                        Stay tuned
+                                        <ArrowRight size={14} />
+                                    </button>
+                                ) : (
+                                    <a
+                                        href={article.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="blog-read-btn"
+                                        style={{ textDecoration: 'none' }}
+                                    >
+                                        Read More
+                                        <ArrowRight size={14} />
+                                    </a>
+                                )}
                             </div>
 
                             <div className="blog-accent" style={{ background: article.color }}></div>
