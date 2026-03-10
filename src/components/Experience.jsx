@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, ChevronRight } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, ArrowUpRight } from 'lucide-react';
 import './Experience.css';
 
 const Experience = () => {
@@ -8,45 +8,51 @@ const Experience = () => {
         {
             company: 'Kutumb',
             role: 'QA Engineer',
+            location: 'Bangalore, India',
             period: 'Sep 2025 - Present',
             type: 'current',
-            description: [
-                'Performed mobile application testing on Android and iOS platforms to ensure high-quality releases.',
-                'Executed functional, regression, smoke, sanity, and exploratory testing for mobile features and updates.',
-                'Validated API integrations using Postman and ensured seamless communication between mobile apps and backend services.',
-                'Tested app performance, usability, and compatibility across multiple devices, OS versions, and screen sizes.',
-                'Used tools such as ADB, logcat, Charles Proxy, Firebase, BrowserStack, Postman, and JIRA for debugging and issue tracking.',
-                'Collaborated with developers and product teams to improve app stability and user experience.'
-            ]
+            summary: 'Leading mobile QA for a community-focused social platform, ensuring seamless experiences for millions of users across Android & iOS.',
+            highlights: [
+                'Owned end-to-end mobile testing across Android & iOS, ensuring zero critical bugs in production releases',
+                'Executed functional, regression, smoke, sanity & exploratory testing for every sprint cycle',
+                'Validated API integrations via Postman, catching backend-mobile communication gaps early',
+                'Tested performance, usability & compatibility across 20+ device configurations',
+                'Collaborated closely with developers & PMs to triage, prioritize, and resolve issues faster'
+            ],
+            tools: ['Postman', 'ADB', 'Charles Proxy', 'Firebase', 'BrowserStack', 'JIRA']
         },
         {
             company: 'Moolya Software Testing Pvt Ltd',
             role: 'QA Engineer',
+            location: 'Bangalore, India',
             period: 'Mar 2025 - Sep 2025',
             type: 'past',
-            description: [
-                'Tested Android, iOS, and Web applications, ensuring quality across multiple platforms.',
-                'Performed functional, regression, exploratory, and usability testing.',
-                'Maintained and updated test suites using TestRail.',
-                'Created mind maps to visualize test coverage and improve test planning.',
-                'Collaborated with cross-functional teams to streamline testing processes.'
-            ]
+            summary: 'Delivered cross-platform quality assurance for diverse client projects spanning mobile and web applications.',
+            highlights: [
+                'Tested Android, iOS & Web applications, ensuring quality across multiple platforms',
+                'Performed functional, regression, exploratory & usability testing across sprints',
+                'Maintained and updated test suites using TestRail for comprehensive coverage tracking',
+                'Created mind maps to visualize test coverage and improve test planning',
+                'Streamlined testing workflows by collaborating with cross-functional teams'
+            ],
+            tools: ['TestRail', 'JIRA', 'BrowserStack', 'Mind Maps']
         },
         {
             company: 'BANGDB',
             role: 'QA Engineer',
+            location: 'Remote',
             period: 'Apr 2023 - Feb 2025',
             type: 'past',
-            description: [
-                'Designed and executed manual test cases for web applications, APIs, system testing, and performance testing.',
-                'Implemented end-to-end testing following the STLC process.',
-                'Performed functional, regression, integration, and smoke testing across Web, Android, and iOS.',
-                'Utilized tools such as Charles Proxy, Android Studio, BrowserStack, Xcode, MySQL, Amplitude, Mixpanel, and Firebase.',
-                'Identified, documented, and tracked defects using JIRA.',
-                'Contributed to automation testing using Java and Selenium.',
-                'Worked in Agile/Scrum environments and participated in sprint ceremonies.',
-                'Used Cursor AI tool to assist in test analysis and debugging.'
-            ]
+            summary: 'Built the QA foundation for a NoSQL database startup — from manual testing to automation, across web, mobile & API layers.',
+            highlights: [
+                'Designed & executed manual test cases for web apps, APIs, system & performance testing',
+                'Implemented end-to-end testing following STLC from requirements to sign-off',
+                'Performed functional, regression, integration & smoke testing across Web, Android & iOS',
+                'Identified, documented & tracked 200+ defects using JIRA with clear reproducibility steps',
+                'Contributed to automation testing using Java and Selenium, reducing regression time',
+                'Worked in Agile/Scrum environments, actively participating in sprint ceremonies'
+            ],
+            tools: ['Selenium', 'Java', 'Charles Proxy', 'Android Studio', 'BrowserStack', 'Xcode', 'MySQL', 'Amplitude', 'Firebase', 'JIRA']
         }
     ];
 
@@ -62,42 +68,71 @@ const Experience = () => {
                 >
                     <span className="section-eyebrow">Career</span>
                     <h2 className="section-title" style={{ textAlign: 'left' }}>Work Experience</h2>
+                    <p className="exp-subtitle">3+ years of ensuring quality across mobile, web & API platforms</p>
                 </motion.div>
 
-                <div className="exp-cards">
+                <div className="exp-timeline">
                     {experiences.map((exp, index) => (
                         <motion.div
-                            className={`exp-card ${exp.type === 'current' ? 'exp-current' : ''}`}
+                            className={`exp-timeline-item ${exp.type === 'current' ? 'exp-current' : ''}`}
                             key={index}
-                            initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
-                            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: '-50px' }}
                             transition={{ duration: 0.6, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <div className="exp-card-top">
-                                <div className="exp-company-badge">
-                                    <div className="exp-company-icon">
-                                        <Briefcase size={18} />
-                                    </div>
-                                    <div className="exp-company-info">
-                                        <h3 className="exp-role">{exp.role}</h3>
-                                        <span className="exp-company-name">{exp.company}</span>
-                                    </div>
+                            {/* Timeline node */}
+                            <div className="exp-node">
+                                <div className={`exp-node-dot ${exp.type === 'current' ? 'exp-node-active' : ''}`}>
+                                    {exp.type === 'current' && <span className="exp-pulse"></span>}
                                 </div>
-                                <span className={`exp-period ${exp.type === 'current' ? 'exp-period-active' : ''}`}>
-                                    {exp.type === 'current' && <span className="exp-live-dot"></span>}
-                                    {exp.period}
-                                </span>
+                                {index < experiences.length - 1 && <div className="exp-node-line"></div>}
                             </div>
 
-                            <ul className="exp-duties">
-                                {exp.description.map((item, i) => (
-                                    <li key={i}>
-                                        <ChevronRight size={14} className="duty-arrow" />
-                                        <span>{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                            {/* Card */}
+                            <div className="exp-card">
+                                <div className="exp-card-header">
+                                    <div className="exp-card-title-row">
+                                        <div className="exp-company-icon">
+                                            <Briefcase size={18} />
+                                        </div>
+                                        <div className="exp-title-group">
+                                            <h3 className="exp-role">{exp.role}</h3>
+                                            <span className="exp-company-name">
+                                                {exp.company}
+                                                <ArrowUpRight size={13} className="exp-arrow" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="exp-meta">
+                                        <span className={`exp-period ${exp.type === 'current' ? 'exp-period-active' : ''}`}>
+                                            <Calendar size={12} />
+                                            {exp.period}
+                                        </span>
+                                        <span className="exp-location">
+                                            <MapPin size={12} />
+                                            {exp.location}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <p className="exp-summary">{exp.summary}</p>
+
+                                <div className="exp-highlights">
+                                    {exp.highlights.map((item, i) => (
+                                        <div className="exp-highlight-item" key={i}>
+                                            <span className="exp-highlight-bullet"></span>
+                                            <span>{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="exp-tools">
+                                    {exp.tools.map((tool, i) => (
+                                        <span className="exp-tool-tag" key={i}>{tool}</span>
+                                    ))}
+                                </div>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

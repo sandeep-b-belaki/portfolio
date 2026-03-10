@@ -1,33 +1,95 @@
 /* ============================================================
-   EXPERIENCE — Stacked Cards
+   EXPERIENCE — Timeline Design
    ============================================================ */
 .experience {
     background: var(--bg-2, var(--bg));
 }
 
 .exp-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .exp-header .section-title {
     text-align: left;
 }
 
-.exp-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    max-width: 860px;
+.exp-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-2);
+    margin-top: 0.5rem;
+    max-width: 480px;
 }
 
-/* Card */
+/* ---- Timeline Layout ---- */
+.exp-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 900px;
+}
+
+.exp-timeline-item {
+    display: flex;
+    gap: 1.75rem;
+    position: relative;
+}
+
+/* ---- Timeline Node ---- */
+.exp-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 2rem;
+}
+
+.exp-node-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--bg-3);
+    border: 2px solid var(--border);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.exp-node-active {
+    background: var(--indigo);
+    border-color: var(--indigo);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.exp-pulse {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--indigo);
+    animation: timelinePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes timelinePulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.8); opacity: 0; }
+}
+
+.exp-node-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(180deg, var(--border) 0%, transparent 100%);
+    min-height: 40px;
+}
+
+/* ---- Card ---- */
 .exp-card {
+    flex: 1;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 2rem;
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
     backdrop-filter: blur(16px);
-    transition: all 0.35s ease;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     overflow: hidden;
 }
@@ -35,52 +97,58 @@
 .exp-card::before {
     content: '';
     position: absolute;
-    left: 0;
     top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--border);
-    transition: all 0.3s ease;
-}
-
-.exp-card:hover::before {
-    background: var(--grad-aurora);
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .exp-card:hover {
     border-color: var(--border-brand);
-    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.1);
-    transform: translateX(4px);
+    box-shadow: 0 8px 40px rgba(59, 130, 246, 0.08), 0 0 0 1px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
 }
 
-/* Current job highlight */
-.exp-current {
-    border-color: var(--border-brand);
-}
-
-.exp-current::before {
+.exp-card:hover::before {
+    opacity: 1;
     background: var(--grad-aurora);
 }
 
-/* Card Top */
-.exp-card-top {
+/* Current card glow */
+.exp-current .exp-card {
+    border-color: rgba(59, 130, 246, 0.25);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.06), rgba(6, 182, 212, 0.03), var(--surface));
+}
+
+.exp-current .exp-card::before {
+    opacity: 1;
+    height: 2px;
+    background: var(--grad-aurora);
+}
+
+/* ---- Card Header ---- */
+.exp-card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
-.exp-company-badge {
+.exp-card-title-row {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
+    gap: 0.75rem;
 }
 
 .exp-company-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     background: var(--tag-bg);
     border: 1px solid var(--tag-border);
     display: flex;
@@ -90,31 +158,52 @@
     flex-shrink: 0;
 }
 
-.exp-company-info {
+.exp-title-group {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: 0.1rem;
 }
 
 .exp-role {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
 }
 
 .exp-company-name {
     font-size: 0.85rem;
     color: var(--purple);
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
 }
 
-/* Period */
+.exp-arrow {
+    opacity: 0.5;
+    transition: all 0.2s ease;
+}
+
+.exp-card:hover .exp-arrow {
+    opacity: 1;
+    transform: translate(1px, -1px);
+}
+
+/* ---- Meta (Period + Location) ---- */
+.exp-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
 .exp-period {
     font-size: 0.72rem;
-    font-weight: 700;
-    padding: 5px 14px;
+    font-weight: 600;
+    padding: 4px 12px;
     border-radius: 50px;
     background: var(--surface-2, rgba(255, 255, 255, 0.05));
     color: var(--text-3);
@@ -122,60 +211,124 @@
     white-space: nowrap;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    flex-shrink: 0;
+    gap: 0.35rem;
+    letter-spacing: 0.01em;
 }
 
 .exp-period-active {
     background: var(--tag-bg);
     color: var(--indigo) !important;
     border-color: var(--tag-border);
+    font-weight: 700;
 }
 
-.exp-live-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--emerald);
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
-    animation: pulseDot 2s ease-in-out infinite;
+.exp-location {
+    font-size: 0.7rem;
+    color: var(--text-3);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
-@keyframes pulseDot {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.5); opacity: 0.6; }
+/* ---- Summary ---- */
+.exp-summary {
+    font-size: 0.88rem;
+    color: var(--text-2);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
 }
 
-/* Duties list */
-.exp-duties {
+/* ---- Highlights ---- */
+.exp-highlights {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
 }
 
-.exp-duties li {
+.exp-highlight-item {
     display: flex;
     align-items: flex-start;
-    gap: 0.5rem;
-    font-size: 0.875rem;
+    gap: 0.65rem;
+    font-size: 0.84rem;
     color: var(--text-2);
-    line-height: 1.65;
+    line-height: 1.6;
 }
 
-.duty-arrow {
-    color: var(--indigo);
+.exp-highlight-bullet {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--indigo);
     flex-shrink: 0;
-    margin-top: 3px;
+    margin-top: 7px;
+    opacity: 0.7;
+}
+
+.exp-current .exp-highlight-bullet {
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
+
+/* ---- Tool Tags ---- */
+.exp-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.exp-tool-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: var(--surface-2, rgba(255, 255, 255, 0.05));
+    color: var(--text-3);
+    border: 1px solid var(--border);
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+}
+
+.exp-card:hover .exp-tool-tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-color: var(--tag-border);
 }
 
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
-    .exp-card-top {
+    .exp-card-header {
         flex-direction: column;
         gap: 0.75rem;
     }
 
+    .exp-meta {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
     .exp-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .exp-timeline-item {
+        gap: 1rem;
+    }
+
+    .exp-node {
+        display: none;
+    }
+
+    .exp-card {
+        margin-bottom: 1rem;
+    }
+
+    .exp-current .exp-card {
+        border-left: 2px solid var(--indigo);
     }
 }
